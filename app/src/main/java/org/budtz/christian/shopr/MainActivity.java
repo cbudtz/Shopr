@@ -11,15 +11,17 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
 import org.budtz.christian.shopr.dataModel.DbController;
+import org.budtz.christian.shopr.dataModel.IDbController;
 
 public class MainActivity extends AppCompatActivity implements leftMenuListener{
     private Firebase fireBase;
-    private DbController Db = DbController.getI();
+    private IDbController Db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Db = DbController.getI(this);
     }
 
     @Override

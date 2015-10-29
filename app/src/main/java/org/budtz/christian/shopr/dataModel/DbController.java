@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.firebase.client.Firebase;
 
+import org.budtz.christian.shopr.MainActivity;
+
 /**
- * Created by Christian on 29-10-2015.
+ * @author Christian on 29-10-2015.
  */
 public class DbController implements IDbController {
     private final SharedPreferences prefs;
@@ -31,10 +33,8 @@ public class DbController implements IDbController {
      */
     private DbController(AppCompatActivity a){
         prefs = PreferenceManager.getDefaultSharedPreferences(a);
-        Firebase.setAndroidContext(a.getBaseContext());
-    }
-
-    public synchronized void onCreate(){
+        Firebase.setAndroidContext(a);
+        fireBase= new Firebase("https://shop-r.firebaseio.com/");
 
     }
 
@@ -47,5 +47,10 @@ public class DbController implements IDbController {
     public void setActiveShopList(ShopList shopList) {
 
     }
+    @Override
+    public void testDB(){
+       fireBase.child("message").setValue("Do you have data? You'll love Firebase.");
+    }
+
 
 }
