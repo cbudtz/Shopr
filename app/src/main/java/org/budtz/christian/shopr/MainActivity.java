@@ -5,9 +5,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements leftMenuListener{
+    private Firebase fireBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +19,23 @@ public class MainActivity extends AppCompatActivity implements leftMenuListener{
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    protected void onStart(){
+        super.onStart();
+        fireBase = new Firebase("Fancy URL");
+        fireBase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+//                Something funny should happen here - updating view ie
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

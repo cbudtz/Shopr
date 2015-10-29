@@ -2,16 +2,20 @@ package org.budtz.christian.shopr;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment {
+    FragmentActivity rootActivity;
 
     public MainActivityFragment() {
+        rootActivity = getActivity();
     }
 
     @Override
