@@ -10,8 +10,11 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
+import org.budtz.christian.shopr.dataModel.DbController;
+
 public class MainActivity extends AppCompatActivity implements leftMenuListener{
     private Firebase fireBase;
+    private DbController Db = DbController.getI();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
